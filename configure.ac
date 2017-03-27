@@ -148,7 +148,7 @@ AC_PROG_MAKE_SET
 # Checks for libraries.
 
 # Checks for header files.
-AC_INCLUDES_DEFAULT()
+# AC_INCLUDES_DEFAULT()
 AC_HEADER_RESOLV
 AC_CHECK_HEADERS([sys/malloc.h malloc.h], [], [],
 [[#ifdef HAVE_SYS_MALLOC_H
