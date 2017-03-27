@@ -189,10 +189,8 @@ static void *
 getCurrentInputSymbol		(pANTLR3_BASE_RECOGNIZER recognizer, pANTLR3_INT_STREAM istream)
 {
 	pANTLR3_TREE_NODE_STREAM		tns;
-    pANTLR3_COMMON_TREE_NODE_STREAM	ctns;
 
     tns	    = (pANTLR3_TREE_NODE_STREAM)(istream->super);
-    ctns    = tns->ctns;
 	return tns->_LT(tns, 1);
 }
 

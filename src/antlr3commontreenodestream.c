@@ -930,10 +930,8 @@ replaceChildren				(pANTLR3_TREE_NODE_STREAM tns, pANTLR3_BASE_TREE parent, ANTL
 	if	(parent != NULL)
 	{
 		pANTLR3_BASE_TREE_ADAPTOR	adaptor;
-		pANTLR3_COMMON_TREE_ADAPTOR	cta;
 
 		adaptor	= tns->getTreeAdaptor(tns);
-		cta		= (pANTLR3_COMMON_TREE_ADAPTOR)(adaptor->super);
 
 		adaptor->replaceChildren(adaptor, parent, startChildIndex, stopChildIndex, t);
 	}

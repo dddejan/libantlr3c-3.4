@@ -106,7 +106,6 @@ static	void				returnVector		(pANTLR3_VECTOR_FACTORY factory, pANTLR3_VECTOR vec
 // Interface functions for int TRIE
 //
 static	pANTLR3_TRIE_ENTRY	intTrieGet		(pANTLR3_INT_TRIE trie, ANTLR3_INTKEY key);
-static	ANTLR3_BOOLEAN		intTrieDel		(pANTLR3_INT_TRIE trie, ANTLR3_INTKEY key);
 static	ANTLR3_BOOLEAN		intTrieAdd		(pANTLR3_INT_TRIE trie, ANTLR3_INTKEY key, ANTLR3_UINT32 type, ANTLR3_INTKEY intType, void * data, void (ANTLR3_CDECL *freeptr)(void *));
 static	void				intTrieFree		(pANTLR3_INT_TRIE trie);
 
@@ -1789,7 +1788,6 @@ antlr3IntTrieNew(ANTLR3_UINT32 depth)
 	}
 
 	trie->add	= intTrieAdd;
-	trie->del	= intTrieDel;
 	trie->free	= intTrieFree;
 	trie->get	= intTrieGet;
 
@@ -1884,18 +1882,6 @@ intTrieGet	(pANTLR3_INT_TRIE trie, ANTLR3_INTKEY key)
 	{
 		return	NULL;	/* That key is not in the trie (note that we set the pointer to -1 if no payload) */
 	}
-}
-
-
-static	ANTLR3_BOOLEAN		
-intTrieDel	(pANTLR3_INT_TRIE trie, ANTLR3_INTKEY key)
-{
-    pANTLR3_INT_TRIE_NODE   p;
-
-    p=trie->root;
-    key = key;
-
-    return ANTLR3_FALSE;
 }
 
 /** Add an entry into the INT trie.

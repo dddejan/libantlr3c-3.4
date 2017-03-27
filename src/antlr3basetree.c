@@ -425,8 +425,6 @@ replaceChildren		(pANTLR3_BASE_TREE parent, ANTLR3_INT32 startChildIndex, ANTLR3
 	}
 	else
 	{
-		ANTLR3_UINT32 numToInsert;
-
 		// More nodes than there were before
 		// Use what we can, then start adding
 		//
@@ -434,8 +432,6 @@ replaceChildren		(pANTLR3_BASE_TREE parent, ANTLR3_INT32 startChildIndex, ANTLR3
 		{
 			parent->children->set(parent->children, startChildIndex + j, newChildren->get(newChildren, j), NULL, ANTLR3_FALSE);
 		}
-
-		numToInsert = replacingWithHowMany - replacingHowMany;
 
 		for	(j = replacingHowMany; j < replacingWithHowMany; j++)
 		{

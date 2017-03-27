@@ -325,22 +325,6 @@ stringInitUTF16  (pANTLR3_STRING string)
     string->appendS	= appendS;
     string->insertS	= insertS;
 }
-/**
- *
- * \param string 
- * \return 
- * TODO: Implement UTF-8
- */
-static	void
-stringInitUTF8  (pANTLR3_STRING string)
-{
-    string->len	    = 0;
-    string->size    = 0;
-    string->chars   = NULL;
-
-    /* API */
-
-}
 
 // Convert an 8 bit string into a UTF8 representation, which is in fact just the string itself
 // a memcpy as we make no assumptions about the 8 bit encoding.
@@ -361,10 +345,7 @@ toUTF8_UTF16	(pANTLR3_STRING string)
 {
 
     UTF8	      * outputEnd;	
-    UTF16	      * inputEnd;
     pANTLR3_STRING	utf8String;
-
-    ConversionResult	cResult;
 
     // Allocate the output buffer, which needs to accommodate potentially
     // 3X (in bytes) the input size (in chars).
@@ -384,19 +365,7 @@ toUTF8_UTF16	(pANTLR3_STRING string)
 
         if	(utf8String->chars != NULL)
         {
-            inputEnd  = (UTF16 *)	(string->chars);
             outputEnd = (UTF8 *)	(utf8String->chars);
-
-            // Call the Unicode converter
-            //
-            cResult =  ConvertUTF16toUTF8
-                (
-                (const UTF16**)&inputEnd, 
-                ((const UTF16 *)(string->chars)) + string->len, 
-                &outputEnd, 
-                outputEnd + utf8String->size - 1,
-                lenientConversion
-                );
 
             // We don't really care if things failed or not here, we just converted
             // everything that was vaguely possible and stopped when it wasn't. It is

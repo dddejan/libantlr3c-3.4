@@ -381,7 +381,6 @@ typedef struct ANTLR3_INT_TRIE_struct
 
     
     pANTLR3_TRIE_ENTRY	(*get)	(struct ANTLR3_INT_TRIE_struct * trie, ANTLR3_INTKEY key);
-    ANTLR3_BOOLEAN		(*del)	(struct ANTLR3_INT_TRIE_struct * trie, ANTLR3_INTKEY key);
     ANTLR3_BOOLEAN		(*add)	(struct ANTLR3_INT_TRIE_struct * trie, ANTLR3_INTKEY key, ANTLR3_UINT32 type, ANTLR3_INTKEY intVal, void * data, void (ANTLR3_CDECL *freeptr)(void *));
     void				(*free)	(struct ANTLR3_INT_TRIE_struct * trie);
 
